@@ -40,6 +40,7 @@ async function signupFormHandler(event) {
       headers: { 'Content-Type': 'application/json' }
     });
 
+    // check the response status
     if (response.ok) {
       document.location.replace('/');
     } else {
@@ -49,5 +50,4 @@ async function signupFormHandler(event) {
 }
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
-
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);

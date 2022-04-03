@@ -1,18 +1,13 @@
-<ol class="post-list">
-  {{#each posts as |post|}}
-  <li>
-    <article class="post">
-      <div class="title">
-        <a href="{{post.content}}" target="_blank">{{post.title}}</a>
-        <span>({{post.content}})</span>
-      </div>
-      <div class="meta">
-        {{post.vote_count}} point(s) by {{post.user.username}} on
-        {{post.created_at}}
-        |
-        <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
-      </div>
-    </article>
-  </li>
+<div class="list-group">
+        {{#each posts as |post|}}
+  <a href="/post/{{post.id}}" class="list-group-item list-group-item-action" aria-current="true">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{post.title}}</h5>
+    </div>
+    <p class="mb-1">{{post.content}}</p>
+    {{#if post.comments.length}}
+    <small>{{post.comments.length}} comment(s)</small>
+    {{/if}}
+  </a>
   {{/each}}
-</ol>
+</div>
