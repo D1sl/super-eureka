@@ -1,6 +1,6 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">{{post.title}}</li>
   </ol>
 </nav>
@@ -14,7 +14,7 @@
 </div>
 
 <div class="row">
-    <p>On {{post.created_at}} by {{post.user.username}}</p>
+    <p>Posted by {{post.user.username}} on {{format_date post.created_at}}</p>
 </div>
 
 {{#if post.comments.length}}
@@ -30,7 +30,7 @@
     {{#each post.comments}}
     <div class="list-group-item flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
-            <small class="text-muted"><strong>{{user.username}}</strong> on {{created_at}}</small>
+            <small class="text-muted"><strong>{{user.username}}</strong> on {{format_date created_at}}</small>
         </div>
         <p class="mb-1">{{comment_text}}</p>
     </div>
