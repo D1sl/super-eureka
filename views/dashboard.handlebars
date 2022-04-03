@@ -6,10 +6,11 @@
 </nav>
 
 <div class="row">
-    <h2>Create New Post</h2>
+    <h1 class="text-capitalize mb-4">Hi {{username}}!</h1>
+    <h3 class="mb-4">Create New Post</h3>
 </div>
 
-<div class="row">
+<div class="row mb-4">
     <form class="new-post-form">
         <div class="row mb-3">
             <label for="post-title" class="col-sm-2 col-form-label">Title</label>
@@ -20,10 +21,28 @@
         <div class="row mb-3">
             <label for="post-content" class="col-sm-2 col-form-label">Content</label>
             <div class="col-sm-10">
-                <textarea type="text" name="post-content" class="form-control" id="post-content"></textarea>
+                <textarea type="text" name="post-content" class="form-control post-content" id="post-content"></textarea>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 
+<div class="row">
+    <h2 class="mb-4">Your Posts</h2>
+</div>
+
+{{#if posts.length}}
+<div class="row">
+    <div class="list-group">
+        {{#each posts as |post|}}
+        {{> post-info post}}
+        {{/each}}
+    </div>
+</div>
+{{else}}
+<div class="row">
+    <p>You don't have any posts - yet.</p>
+</div>
+{{/if}}
+<script src="/js/add-post.js"></script>

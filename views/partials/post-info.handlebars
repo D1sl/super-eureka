@@ -1,0 +1,9 @@
+<a href="/post/{{id}}" class="list-group-item list-group-item-action" aria-current="true">
+    <small>By {{user.username}} on {{format_date created_at}}:</small>
+    <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{title}}</h5>
+    </div>
+    {{#if comments.length}}
+    <small>{{comments.length}} comment(s)</small>
+    {{/if}}
+</a>
